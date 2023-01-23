@@ -7,7 +7,7 @@ beforeEach(() => {
 });
 
 describe('Kata Tests', () => {
-    test.each`
+    it.each`
         name         | expected
         ${'Ingage'}  | ${'Hello Ingage'}
         ${'Brandon'} | ${'Hello Brandon'}
