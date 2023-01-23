@@ -1,4 +1,3 @@
-import { beforeEach, expect, test } from '@jest/globals';
 import { Kata } from './kata';
 
 let fixture: Kata;
@@ -7,7 +6,15 @@ beforeEach(() => {
     fixture = new Kata();
 });
 
-test('hello should return message with specified name', () => {
-    const name = 'Ingage';
-    expect(fixture.hello(name)).toEqual(`Hello ${name}`);
+describe('Kata Tests', () => {
+    test.each`
+        name         | expected
+        ${'Ingage'}  | ${'Hello Ingage'}
+        ${'Brandon'} | ${'Hello Brandon'}
+    `(
+        'returns $expected when $name is passed to function',
+        ({ name, expected }) => {
+            expect(fixture.hello(name)).toEqual(expected);
+        }
+    );
 });
