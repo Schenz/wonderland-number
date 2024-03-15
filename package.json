@@ -14,6 +14,8 @@
         "test": "jest"
     },
     "dependencies": {
+        "@types/lodash": "^4.17.0",
+        "lodash": "^4.17.21",
         "typescript": "^4.9.4"
     },
     "devDependencies": {
