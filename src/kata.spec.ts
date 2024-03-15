@@ -10,7 +10,7 @@ beforeEach(() => {
 
 const expectedResultsFor10_000_000 = [142857, 1428570, 1429857]
 const expectedResultsFor100_000_000 = [142857, 1428570, 1429857, 14285700, 14298570, 14299857]
-const expectedResultsForKata2 = [1428570, 1429857, 14285700, 14298570, 14299857, 142857000, 142985700, 142998570, 142999857,]
+const expectedResultsForKata2 = [1428570, 1429857, 14285700, 14298570, 14299857, 142857000, 142985700, 142998570, 142999857]
 
 describe('Kata Tests', () => {
     xit('should find the wonderland number', () => {
@@ -24,14 +24,22 @@ describe('Kata Tests', () => {
 });
 
 describe('Kata2 Tests', () => {
-    it('should find the wonderland number', () => {
-        const startTime = Date.now(); // Record start time
-        const [matches, matchNumbers] = fixture2.findWonderlandNumber();
-        const endTime = Date.now(); // Record end time
-        const duration = endTime - startTime;
-        console.log(`Kata 2 found ${matches} wonderland numbers in ${formatDuration(duration)}`);
-        expect(matchNumbers).toStrictEqual(expectedResultsForKata2);
-    });
+    it.each`
+        maxMatches         | expected
+        ${'1'}  | ${'[1428570]'}
+        ${'2'} | ${'[1428570, 1429857]'}
+    `(
+        'should find the wonderland number for ',
+        ({ maxMatches, expected }) => {
+            const startTime = Date.now(); // Record start time
+            const [matches, matchNumbers] = fixture2.findWonderlandNumber(maxMatches);
+            const endTime = Date.now(); // Record end time
+            const duration = endTime - startTime;
+            console.log(`Kata 2 found ${matches} wonderland numbers in ${formatDuration(duration)}`);
+            expect(matchNumbers).toStrictEqual(expected);
+        }
+    );
+
 });
 
 function formatDuration(duration: number): string {
