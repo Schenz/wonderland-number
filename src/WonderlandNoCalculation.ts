@@ -1,4 +1,4 @@
-export class Kata3 {
+export class WonderlandNoCalculation {
     public findWonderlandNumber(maxMatches: number): number[] {
         let matches = new Set<number>([142_857]);
         let numMatches = 1;

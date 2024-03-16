@@ -1,4 +1,4 @@
-export class Kata2 {
+export class WonderlandBruteForce {
     // Function to get digits of a number
     private digits = (n: number): number[] => n.toString().split('').map(Number)
 

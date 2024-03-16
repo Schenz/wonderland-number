@@ -1,48 +1,48 @@
-import { Kata } from './kata';
-import { Kata2 } from './Kata2';
-import { Kata3 } from './Kata3';
+import { WonderlandBruteForce } from './WonderlandBruteForce';
+import { WonderlandOptimization1 } from './WonderlandOptimization1';
+import { WonderlandNoCalculation } from './WonderlandNoCalculation';
 
-let fixture: Kata;
-let fixture2: Kata2;
-let fixture3: Kata3;
+let fixture: WonderlandBruteForce;
+let fixture2: WonderlandOptimization1;
+let fixture3: WonderlandNoCalculation;
 
 beforeEach(() => {
-    fixture = new Kata();
-    fixture2 = new Kata2();
-    fixture3 = new Kata3();
+    fixture = new WonderlandBruteForce();
+    fixture2 = new WonderlandOptimization1();
+    fixture3 = new WonderlandNoCalculation();
 });
 
-describe('Kata Tests', () => {
-    it.each`
-    iterations  | expected
-    ${1}        | ${[142857]}
-    ${2}        | ${[142857, 1428570]}
-    ${3}        | ${[142857, 1428570, 1429857]}
-    ${4}        | ${[142857, 1428570, 1429857, 14285700]}
-    `(
-        'returns $expected when $iterations is passed to findWonderlandNumber', 
-        ({iterations, expected}) => {
-            expect(fixture.findWonderlandNumber(iterations)).toStrictEqual(expected);
-        }
-    );
-});
-
-// describe('Kata2 Tests', () => {
+// describe('Brute Force Tests', () => {
 //     it.each`
-//         maxMatches  | expected
-//         ${1}        | ${[142857]}
-//         ${2}        | ${[142857, 1428570]}
-//         ${3}        | ${[142857, 1428570, 1429857]}
-//         ${4}        | ${[142857, 1428570, 1429857, 14285700]}
+//     iterations  | expected
+//     ${1}        | ${[142857]}
+//     ${2}        | ${[142857, 1428570]}
+//     ${3}        | ${[142857, 1428570, 1429857]}
+//     ${4}        | ${[142857, 1428570, 1429857, 14285700]}
 //     `(
-//         'returns $expected when $maxMatches is passed to findWonderlandNumber',
-//         ({ maxMatches, expected }) => {
-//             expect(fixture2.findWonderlandNumber(maxMatches)).toStrictEqual(expected);
+//         'returns $expected when $iterations is passed to findWonderlandNumber', 
+//         ({iterations, expected}) => {
+//             expect(fixture.findWonderlandNumber(iterations)).toStrictEqual(expected);
 //         }
 //     );
 // });
 
-// describe('Kata3 Tests', () => {
+describe('Optimization 1 Tests', () => {
+    it.each`
+        maxMatches  | expected
+        ${1}        | ${[142857]}
+        ${2}        | ${[142857, 1428570]}
+        ${3}        | ${[142857, 1428570, 1429857]}
+        ${4}        | ${[142857, 1428570, 1429857, 14285700]}
+    `(
+        'returns $expected when $maxMatches is passed to findWonderlandNumber',
+        ({ maxMatches, expected }) => {
+            expect(fixture2.findWonderlandNumber(maxMatches)).toStrictEqual(expected);
+        }
+    );
+});
+
+// describe('No Calculation Tests', () => {
 //     it.each`
 //         maxMatches  | expected
 //         ${1}        | ${[142857]}
