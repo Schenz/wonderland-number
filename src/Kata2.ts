@@ -1,33 +1,42 @@
 export class Kata2 {
-    public findWonderlandNumber(maxMatches: number): number[] {
-        let n = 142_857;
-        const matches = new Set<number>(); // Using Set to keep matches unique
-        let nextStartingPoint = n * 10; // Initial next starting point
-        for (; n < nextStartingPoint; n++) {
-            matches.add(n);
-            if (matches.size === maxMatches) {
-                return Array.from(matches);
+    // Function to get digits of a number
+    private digits = (n: number): number[] => n.toString().split('').map(Number)
+
+    // Function to check if two lists are permutations of each other
+    private permutation(l1: number[], l2: number[]): boolean {
+        if (l1.length !== l2.length) return false;
+
+        const sorted1 = l1.slice().sort();
+        const sorted2 = l2.slice().sort();
+
+        for (let i = 0; i < sorted1.length; i++) {
+            if (sorted1[i] !== sorted2[i]) {
+                return false;
             }
-            
-            // Update next starting point based on last match found
-            n = ((Array.from(matches).pop()! * 10) + 1287) - 1;
-
-            // Multiply each match by 10 and add to a temporary set
-            const tempSet = new Set<number>();
-            matches.forEach(match => tempSet.add(match * 10));
-
-            // Merge the temporary set with the original set
-            tempSet.forEach(match => matches.add(match));
-
-            // Check if matches size equals or exceeds maxMatches
-            if (matches.size >= maxMatches) {
-                // If so, trim matches to maxMatches
-                return Array.from(matches).slice(0, maxMatches);
-            }
-
-            // make sure we continue to loop
-            nextStartingPoint = nextStartingPoint * 10;
         }
-        return Array.from(matches);
+        return true;
+    }
+
+    // Function to check if a number is a wonderland number
+    public wonderland(n: number): boolean {
+        const nums = [2 * n, 3 * n, 4 * n, 5 * n, 6 * n];
+        const nDigits = this.digits(n);
+        return nums.every(num => this.permutation(this.digits(num), nDigits));
+    }
+
+    // Function to find the first wonderland number
+    public findWonderlandNumber(maxMatches: number): number[] {
+        let n = 100_000;
+        let matches = 0;
+        let matchNumbers = [];
+        while (matches < maxMatches) {
+            if (this.wonderland(n)) {
+                matches++
+                matchNumbers.push(n)
+            }
+            n++;
+        }
+        
+        return matchNumbers;
     }
 }
