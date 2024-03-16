@@ -25,11 +25,11 @@ export class Kata {
     }
 
     // Function to find the first wonderland number
-    public findWonderlandNumber(iterations: number): number[] {
+    public findWonderlandNumber(maxMatches: number): number[] {
         let n = 100_000;
         let matches = 0;
         let matchNumbers = [];
-        while (n < iterations) {
+        while (matches < maxMatches) {
             if (this.wonderland(n)) {
                 matches++
                 matchNumbers.push(n)

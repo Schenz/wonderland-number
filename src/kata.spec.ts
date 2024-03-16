@@ -12,36 +12,35 @@ beforeEach(() => {
     fixture3 = new Kata3();
 });
 
-// describe('Kata Tests', () => {
-//     it.each`
-//     iterations      | expected
-//     ${1_000_000}    | ${[142857]}
-//     ${10_000_000}   | ${[142857, 1428570, 1429857]}
-//     ${100_000_000}  | ${[142857, 1428570, 1429857, 14285700, 14298570, 14299857]}
-//     `(
-//         'returns $expected when $iterations is passed to findWonderlandNumber', 
-//         ({iterations, expected}) => {
-//             expect(fixture.findWonderlandNumber(iterations)).toStrictEqual(expected);
-//         }
-//     );
-// });
-
-// these tests take about 20 milliseconds
-
-describe('Kata2 Tests', () => {
+describe('Kata Tests', () => {
     it.each`
-        maxMatches  | expected
-        ${1}        | ${[142857]}
-        ${2}        | ${[142857, 1428570]}
-        ${3}        | ${[142857, 1428570, 1429857]}
-        ${4}        | ${[142857, 1428570, 1429857, 14285700]}
+    iterations  | expected
+    ${1}        | ${[142857]}
+    ${2}        | ${[142857, 1428570]}
+    ${3}        | ${[142857, 1428570, 1429857]}
+    ${4}        | ${[142857, 1428570, 1429857, 14285700]}
     `(
-        'returns $expected when $maxMatches is passed to findWonderlandNumber',
-        ({ maxMatches, expected }) => {
-            expect(fixture2.findWonderlandNumber(maxMatches)).toStrictEqual(expected);
+        'returns $expected when $iterations is passed to findWonderlandNumber', 
+        ({iterations, expected}) => {
+            expect(fixture.findWonderlandNumber(iterations)).toStrictEqual(expected);
         }
     );
 });
+
+// describe('Kata2 Tests', () => {
+//     it.each`
+//         maxMatches  | expected
+//         ${1}        | ${[142857]}
+//         ${2}        | ${[142857, 1428570]}
+//         ${3}        | ${[142857, 1428570, 1429857]}
+//         ${4}        | ${[142857, 1428570, 1429857, 14285700]}
+//     `(
+//         'returns $expected when $maxMatches is passed to findWonderlandNumber',
+//         ({ maxMatches, expected }) => {
+//             expect(fixture2.findWonderlandNumber(maxMatches)).toStrictEqual(expected);
+//         }
+//     );
+// });
 
 // describe('Kata3 Tests', () => {
 //     it.each`
