@@ -1,5 +1,3 @@
-const iterations = 10_000_000;
-
 export class Kata {
     // Function to get digits of a number
     private digits = (n: number): number[] => n.toString().split('').map(Number)
@@ -27,7 +25,7 @@ export class Kata {
     }
 
     // Function to find the first wonderland number
-    public findWonderlandNumber(): [number, number[]] {
+    public findWonderlandNumber(iterations: number): number[] {
         let n = 100_000;
         let matches = 0;
         let matchNumbers = [];
@@ -38,7 +36,7 @@ export class Kata {
             }
             n++;
         }
-        //return -1; // No wonderland number found
-        return [matches, matchNumbers];
+        
+        return matchNumbers;
     }
 }

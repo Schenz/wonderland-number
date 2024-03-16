@@ -10,15 +10,21 @@ beforeEach(() => {
     fixture2 = new Kata2();
 });
 
-const expectedResultsFor100_000_000 = [142857, 1428570, 1429857, 14285700, 14298570, 14299857]
+//const expectedResultsFor100_000_000 = [142857, 1428570, 1429857, 14285700, 14298570, 14299857];
+const expectedResultsFor100_000_000 = [142857, 1428570, 1429857];
 
 describe('Kata Tests', () => {
-    xit('should find the wonderland number', () => {
-        const startTime = Date.now(); // Record start time
-        const [matches, matchNumbers] = fixture.findWonderlandNumber();
-        const endTime = Date.now(); // Record end time
+    it('should find the wonderland number', () => {
+        const startTime = performance.now(); // Record start time
+        const matchNumbers = fixture.findWonderlandNumber(10_000_000);
+        const endTime = performance.now(); // Record end time
         const duration = endTime - startTime;
-        console.log(`Kata 1 found ${matches} wonderland numbers in ${formatDuration(duration)}`);
+
+        const minutes = Math.floor(duration / 60000);
+        const seconds = Math.floor((duration % 60000) / 1000);
+        const milliseconds = Math.floor(duration % 1000);
+
+        console.log(`Kata 1 found ${matchNumbers.length} wonderland numbers in ${minutes} minutes ${seconds} seconds ${milliseconds} milliseconds`);
         expect(matchNumbers).toStrictEqual(expectedResultsFor100_000_000);
     });
 });
