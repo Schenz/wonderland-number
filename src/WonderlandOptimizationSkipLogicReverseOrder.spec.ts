@@ -1,12 +1,12 @@
-import { WonderlandOptimizationSkipLogic } from './WonderlandOptimizationSkipLogic';
+import { WonderlandOptimizationSkipLogicReverseOrder } from './WonderlandOptimizationSkipLogicReverseOrder';
 
-let optimization1: WonderlandOptimizationSkipLogic;
+let fixture: WonderlandOptimizationSkipLogicReverseOrder;
 
 beforeEach(async () => {
-    optimization1 = new WonderlandOptimizationSkipLogic();
+    fixture = new WonderlandOptimizationSkipLogicReverseOrder();
 });
 
-describe('Optimization Skip Logic Tests', () => {
+describe('Optimization Skip Logic With Reverse Order Tests', () => {
     it.each`
         maxMatches  | skip      | expected
         ${1}        | ${false}  | ${[142857]}
@@ -17,7 +17,7 @@ describe('Optimization Skip Logic Tests', () => {
         'returns $expected when $maxMatches is passed to findWonderlandNumber',
         ({ maxMatches, skip, expected }) => {
             if (!skip) {
-                expect(optimization1.findWonderlandNumber(maxMatches)).toStrictEqual(expected);    
+                expect(fixture.findWonderlandNumber(maxMatches)).toStrictEqual(expected);    
             }
         }
     );
