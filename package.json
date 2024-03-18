@@ -11,7 +11,7 @@
         "start": "npm run build && node build/index.js",
         "lint": "eslint . --ext .ts",
         "test:coverage": "jest --coverage",
-        "test": "jest"
+        "test": "jest --verbose"
     },
     "dependencies": {
         "@types/lodash": "^4.17.0",
