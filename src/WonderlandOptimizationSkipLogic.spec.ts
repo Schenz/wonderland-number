@@ -1,12 +1,12 @@
-import { WonderlandOptimization1 } from './WonderlandOptimization1';
+import { WonderlandOptimizationSkipLogic } from './WonderlandOptimizationSkipLogic';
 
-let optimization1: WonderlandOptimization1;
+let optimization1: WonderlandOptimizationSkipLogic;
 
 beforeEach(async () => {
-    optimization1 = new WonderlandOptimization1();
+    optimization1 = new WonderlandOptimizationSkipLogic();
 });
 
-describe('Optimization 1 Tests', () => {
+describe('Optimization Skip Logic Tests', () => {
     it.each`
         maxMatches  | skip      | expected
         ${1}        | ${false}  | ${[142857]}

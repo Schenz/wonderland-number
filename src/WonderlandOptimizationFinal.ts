@@ -1,11 +1,7 @@
-export class WonderlandOptimization2 {
+export class WonderlandOptimizationFinal {
     private digits = (n: bigint): number[] => Array.from(n.toString()).map(Number) as number[];
 
     private permutation(l1: number[], l2: number[]): boolean {
-        if (l1.length !== l2.length) {
-            return false;
-        }
-
         const sorted1 = l1.slice().sort();
         const sorted2 = l2.slice().sort();
 

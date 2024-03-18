@@ -1,4 +1,4 @@
-export class WonderlandOptimization1 {
+export class WonderlandOptimizationSkipLogic {
     private digits = (n: number): number[] => n.toString().split('').map(Number)
 
     private permutation(l1: number[], l2: number[]): [isWonderland: boolean, error?: string] {

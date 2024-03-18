@@ -1,15 +1,15 @@
-import { WonderlandOptimization2 } from './WonderlandOptimization2';
+import { WonderlandOptimizationFinal } from './WonderlandOptimizationFinal';
 import { WonderlandNoCalculation } from './WonderlandNoCalculation';
 
-let optimization2: WonderlandOptimization2;
+let optimization2: WonderlandOptimizationFinal;
 let noCalculation: WonderlandNoCalculation;
 
 beforeEach(async () => {
-    optimization2 = new WonderlandOptimization2();
+    optimization2 = new WonderlandOptimizationFinal();
     noCalculation = new WonderlandNoCalculation();
 });
 
-describe('Optimization 2 Tests', () => {
+describe('Optimization No Calculation Tests', () => {
     it.each`
         maxMatches  | expected
         ${1}        | ${[142857n]}

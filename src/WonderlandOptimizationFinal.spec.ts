@@ -1,12 +1,12 @@
-import { WonderlandOptimization2 } from './WonderlandOptimization2';
+import { WonderlandOptimizationFinal } from './WonderlandOptimizationFinal';
 
-let optimization2: WonderlandOptimization2;
+let optimizationFinal: WonderlandOptimizationFinal;
 
 beforeEach(async () => {
-    optimization2 = new WonderlandOptimization2();
+    optimizationFinal = new WonderlandOptimizationFinal();
 });
 
-describe('Optimization 2 Tests', () => {
+describe('Final Optimization Tests', () => {
     it.each`
         maxMatches  | expected
         ${1}        | ${[142857n]}
@@ -32,7 +32,7 @@ describe('Optimization 2 Tests', () => {
     `(
         'returns $expected when $maxMatches is passed to findWonderlandNumber',
         async ({ maxMatches, expected }) => {
-            expect(optimization2.findWonderlandNumber(maxMatches)).toStrictEqual(expected);
+            expect(optimizationFinal.findWonderlandNumber(maxMatches)).toStrictEqual(expected);
             // Expand output when assertion fails
             expect.extend({
                 toStrictEqual(received: any, expected: any) {
