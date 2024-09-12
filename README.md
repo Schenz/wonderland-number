@@ -5,7 +5,7 @@
 Wonderland is a strange place.  There is a wonderland number that is
 also quite strange.
 
-![White Rabbit](/images/whiterabbit.gif)
+![White Rabbit](/whiterabbit.gif)
 
 You must find a way to generate this wonderland number.
 
